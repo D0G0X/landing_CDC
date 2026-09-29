@@ -1,0 +1,10 @@
+{
+  "description": "Showcases the ULEAM Convention Center with an engaging landing page that allows users to request quotes and learn about event hosting options.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
