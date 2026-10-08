@@ -4,6 +4,13 @@ import { ReviewMarquee } from "./components/review-marquee"
 import { tourUrl } from "./lib/navigation"
 import { useHeroStory } from "./lib/use-hero-story"
 import heroImage from "./assets/uleam-convention-center-hero.jpeg"
+import lobbyWideImage from "./assets/uleam-lobby-wide.jpeg"
+import lobbyAngleImage from "./assets/uleam-lobby-angle.jpeg"
+import aerialCourtyardImage from "./assets/uleam-aerial-courtyard.jpeg"
+import lobbyGlassImage from "./assets/uleam-lobby-glass.jpeg"
+import aerialRooftopImage from "./assets/uleam-aerial-rooftop.jpeg"
+import exteriorAerialImage from "./assets/uleam-exterior-aerial.jpeg"
+import lobbyEntranceImage from "./assets/uleam-lobby-entrance.jpeg"
 
 const VirtualCardPreview = lazy(() =>
   import("./components/virtual-card-preview").then((module) => ({
@@ -12,7 +19,7 @@ const VirtualCardPreview = lazy(() =>
 )
 const images = {
   hero: heroImage,
-  hall: "https://images.unsplash.com/photo-1771911650360-31fdb3344c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=84&w=1600",
+  hall: lobbyWideImage,
   service:
     "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=84&w=1600",
   experience:
@@ -23,6 +30,7 @@ const images = {
 const navigation = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Espacios", href: "#espacios" },
+  { label: "Proyecto", href: "#proyecto" },
   { label: "Recorrido 360°", href: "#recorrido-virtual" },
   { label: "Servicios", href: "#servicios" },
   { label: "Historias", href: "#resenas" },
@@ -39,16 +47,25 @@ const slides = [
     kicker: "Encuentros & celebraciones",
     title: "Momentos que reúnen.",
     text: "Hay ocasiones que merecen vivirse juntos. Imagina una celebración con una atmósfera propia y cada detalle pensado para tus invitados.",
-    image: images.service,
-    alt: "Salón dispuesto para una celebración",
+    image: lobbyAngleImage,
+    alt: "Vista interior del salón de convenciones desde el acceso lateral",
   },
   {
     kicker: "Eventos corporativos",
     title: "Conexiones que crecen.",
     text: "Reúne a tu equipo, presenta lo que viene o inicia una nueva alianza. Cada formato encuentra aquí una posibilidad.",
-    image: images.experience,
-    alt: "Espacio preparado para un encuentro",
+    image: lobbyEntranceImage,
+    alt: "Vista interior del salón hacia su fachada acristalada",
   },
+]
+const projectImages = [
+  { src: lobbyWideImage, alt: "Vista amplia del vestíbulo con cubierta de madera", caption: "Un espacio para encontrarnos" },
+  { src: lobbyAngleImage, alt: "Perspectiva lateral del vestíbulo y sus ventanales", caption: "Luz y amplitud" },
+  { src: aerialCourtyardImage, alt: "Vista aérea del centro y su patio ajardinado", caption: "Un nuevo punto de encuentro" },
+  { src: lobbyGlassImage, alt: "Vestíbulo interior frente a la fachada acristalada", caption: "Arquitectura abierta" },
+  { src: aerialRooftopImage, alt: "Vista aérea de la cubierta y el entorno urbano", caption: "El proyecto desde arriba" },
+  { src: exteriorAerialImage, alt: "Vista aérea de la fachada longitudinal del centro", caption: "Una nueva silueta para Manta" },
+  { src: lobbyEntranceImage, alt: "Vista del vestíbulo desde el interior del edificio", caption: "Un lugar que invita a entrar" },
 ]
 const services = [
   {
@@ -466,12 +483,47 @@ export default function App() {
           </section>
         </div>
         <section
+          id="proyecto"
+          className="landing-shell section-space project-section"
+          aria-labelledby="project-title"
+        >
+          <Chapter number="03" label="Conoce el proyecto" note="Centro de Convenciones ULEAM · Manta" />
+          <div className="section-intro">
+            <div>
+              <p className="eyebrow">Una mirada al espacio</p>
+              <h2 id="project-title" className="story-heading">
+                Un lugar para
+                <br />
+                <em>todo lo que viene.</em>
+              </h2>
+            </div>
+            <p className="section-description">
+              Recorre en imágenes las vistas interiores y exteriores del proyecto.
+              Muy pronto podrás conocerlo también en video.
+            </p>
+          </div>
+          <div className="project-gallery" aria-label="Galería de imágenes del proyecto">
+            {projectImages.map((image, index) => (
+              <figure className={`project-gallery-item project-gallery-item-${index + 1}`} key={image.src}>
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption><span>0{index + 1}</span>{image.caption}</figcaption>
+              </figure>
+            ))}
+            <div className="project-video-placeholder" role="img" aria-label="Espacio reservado para el video de presentación del proyecto">
+              <span className="project-video-play" aria-hidden="true">▶</span>
+              <span className="eyebrow">Próximamente</span>
+              <p>El proyecto<br /><em>en movimiento.</em></p>
+              <small>VIDEO DE PRESENTACIÓN</small>
+            </div>
+          </div>
+        </section>
+        <section
           id="recorrido-virtual"
           className="landing-shell section-space tour-invite-section"
           aria-labelledby="tour-title"
         >
           <Chapter
-            number="03"
+            number="04"
             label="Entra en tu próxima idea"
             note="Recorrido virtual · 360°"
           />
@@ -529,7 +581,7 @@ export default function App() {
         >
           <div className="landing-shell section-space">
             <Chapter
-              number="04"
+              number="05"
               label="Lo hacemos posible, contigo"
               note="Del primer detalle al último"
             />
@@ -572,7 +624,7 @@ export default function App() {
           aria-labelledby="events-title"
         >
           <Chapter
-            number="05"
+            number="06"
             label="Cuando la idea se hace encuentro"
             note="Momentos compartidos"
           />
@@ -621,7 +673,7 @@ export default function App() {
         >
           <div className="landing-shell reviews-layout">
             <div className="reviews-copy">
-              <Chapter number="06" label="Lo que se queda" />
+              <Chapter number="07" label="Lo que se queda" />
               <h2 id="reviews-title" className="story-heading">
                 Las historias
                 <br />

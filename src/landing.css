@@ -134,6 +134,26 @@
 .section-bridge { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 40px; padding-top: 22px; border-top: 1px solid #ffffff26; font-size: 11px; color: #8d8983; }
 .section-bridge a { display: inline-flex; align-items: center; gap: 15px; color: #e7e3dc; }
 
+/* A visual overview of the proposed convention center, with room for its film. */
+.project-section { background: #f4f2ee; }
+.project-gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(115px, 10vw, 155px); gap: 12px; }
+.project-gallery-item { position: relative; min-width: 0; margin: 0; overflow: hidden; background: #d8d3ca; }
+.project-gallery-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.project-gallery-item:hover img { transform: scale(1.035); }
+.project-gallery-item figcaption { position: absolute; inset: auto 0 0; display: flex; align-items: center; gap: 12px; padding: 32px 18px 16px; background: linear-gradient(transparent, #090909b8); color: #fff; font-size: 9px; letter-spacing: .07em; }
+.project-gallery-item figcaption span { color: #ffffff9c; font-size: 8px; }
+.project-gallery-item-1 { grid-column: span 7; grid-row: span 2; }
+.project-gallery-item-2 { grid-column: span 5; grid-row: span 2; }
+.project-gallery-item-3, .project-gallery-item-4, .project-gallery-item-5 { grid-column: span 4; grid-row: span 2; }
+.project-gallery-item-6 { grid-column: span 6; grid-row: span 2; }
+.project-gallery-item-7 { grid-column: span 6; grid-row: span 2; }
+.project-video-placeholder { grid-column: span 6; grid-row: span 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 14px; min-height: 0; padding: clamp(24px, 4vw, 56px); background: #171717; color: #f4f2ee; }
+.project-video-play { display: grid; place-items: center; width: 48px; height: 48px; padding-left: 3px; border: 1px solid #ffffff5c; border-radius: 50%; color: #fff; font-size: 12px; }
+.project-video-placeholder .eyebrow { margin: 8px 0 0; color: #e96b70; font-size: 8px; }
+.project-video-placeholder > p { font-family: "DM Sans", sans-serif; font-size: clamp(24px, 3vw, 42px); line-height: 1.08; letter-spacing: -.05em; }
+.project-video-placeholder > p em { font-family: Georgia, serif; font-weight: 400; color: #a9a39b; }
+.project-video-placeholder > small { margin-top: 10px; color: #ffffff70; font-size: 7px; letter-spacing: .15em; }
+
 /* The preview inherits the same charcoal, ivory and red palette. */
 .tour-invite-section .virtual-invite { grid-template-columns: 1fr 1fr; gap: 70px; padding-block: 0; }
 .landing-page .virtual-invite h2 { font-size: clamp(44px, 5.5vw, 80px); margin: 0; line-height: 1.04; }
@@ -235,6 +255,10 @@
   .section-intro { display: block; }
   .section-description { max-width: 480px; margin-top: 28px; }
   .space-carousel { grid-template-columns: 1fr; }
+  .project-gallery { grid-auto-rows: clamp(135px, 24vw, 210px); }
+  .project-gallery-item-1, .project-gallery-item-2 { grid-column: span 6; }
+  .project-gallery-item-3, .project-gallery-item-4, .project-gallery-item-5 { grid-column: span 4; }
+  .project-gallery-item-6, .project-gallery-item-7, .project-video-placeholder { grid-column: span 6; }
   .space-image { min-height: 480px; }
   .space-copy { padding: 36px; }
   .space-slide-text { padding-block: 32px; }
@@ -299,6 +323,11 @@
   .section-intro .eyebrow { font-size: 7px; max-width: 250px; }
   .section-description { font-size: 12px; margin-top: 22px; }
   .space-image { min-height: 340px; }
+  .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 8px; }
+  .project-gallery-item-1, .project-gallery-item-2, .project-gallery-item-6, .project-gallery-item-7, .project-video-placeholder { grid-column: span 2; grid-row: span 2; }
+  .project-gallery-item-3, .project-gallery-item-4, .project-gallery-item-5 { grid-column: span 1; grid-row: span 1; }
+  .project-gallery-item figcaption { gap: 8px; padding: 26px 10px 10px; font-size: 7px; }
+  .project-video-placeholder { min-height: 270px; padding: 24px; }
   .space-image-index { left: 22px; bottom: 22px; font-size: 48px; }
   .space-copy { padding: 24px; }
   .space-slide-text h3 { font-size: 36px; }
