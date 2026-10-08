@@ -13,44 +13,12 @@
   font-synthesis: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 0; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
 
-body {
-  margin: 0;
-  min-width: 320px;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  cursor: pointer;
-}
-
-.font-display {
-  font-family: "DM Sans", sans-serif;
-}
-
-.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.62);
-}
-
-.section-kicker {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.23em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.48);
-}
-
-.button-primary,
-.button-light,
-.button-ghost {
+.button-primary, .button-light {
   display: inline-flex;
   min-height: 52px;
   align-items: center;
@@ -59,130 +27,22 @@ button {
   padding: 0 24px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  transition: all 200ms ease;
+  transition: background .2s, color .2s, gap .2s;
 }
-
-.button-primary {
-  background: #df1f26;
-  color: white;
-}
-
-.button-primary:hover {
-  background: #f1262e;
-  gap: 30px;
-}
-
-.button-light {
-  background: white;
-  color: #151515;
-}
-
-.button-light:hover {
-  background: #0b0b0b;
-  color: white;
-  gap: 30px;
-}
-
-.button-ghost {
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  color: white;
-}
-
-.button-ghost:hover {
-  border-color: white;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.slider-control {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  transition: background 200ms ease;
-}
-
-.slider-control:hover {
-  background: #df1f26;
-  border-color: #df1f26;
-}
-
-.benefit-card {
-  min-height: 300px;
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 28px;
-  transition: background 250ms ease, color 250ms ease;
-}
-
-.benefit-card:hover {
-  background: #141414;
-  color: white;
-}
-
-.benefit-card:hover p {
-  color: rgba(255, 255, 255, 0.5);
-}
-
+.button-primary { background: #df1f26; color: white; }
+.button-primary:hover { background: #f1262e; gap: 30px; }
+.button-light { background: #f4f2ee; color: #151515; }
+.button-light:hover { background: #151515; color: #fff; gap: 30px; }
 .footer-title {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.19em;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.quote-lines {
-  background-image: linear-gradient(90deg, transparent 49.9%, rgba(255,255,255,.14) 50%, transparent 50.1%);
-  background-size: 25% 100%;
-}
-
-.hero-image {
-  transform: scale(var(--hero-scale, 1));
-  opacity: var(--hero-opacity, 1);
-  filter: blur(var(--hero-blur, 0));
-  transform-origin: center center;
-  will-change: transform, opacity, filter;
-}
-
-.hero-content {
-  opacity: var(--hero-content-opacity, 1);
-  transform: translateY(var(--hero-content-y, 0));
-  will-change: transform, opacity;
-}
-
-.hero-overlay {
-  opacity: var(--hero-opacity, 1);
-  will-change: opacity;
-}
-
-@media (max-width: 639px) {
-  .benefit-card {
-    min-height: 250px;
-  }
-
-  .text-outline {
-    -webkit-text-stroke-width: 0.8px;
-  }
+  color: #ffffff59;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .hero-image {
-    animation: none;
-    transform: none;
-    opacity: 1;
-    filter: none;
-  }
-
-  .hero-content {
-    opacity: 1;
-    transform: none;
-  }
+  html { scroll-behavior: auto; }
 }

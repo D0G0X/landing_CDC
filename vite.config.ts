@@ -14,6 +14,12 @@ export default defineConfig(({ mode }) => {
   return {
     base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/',
     build: {
+      rolldownOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          tour: path.resolve(__dirname, 'experiencia-360/index.html'),
+        },
+      },
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
     },

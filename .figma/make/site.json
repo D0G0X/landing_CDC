@@ -1,5 +1,7 @@
 {
-  "description": "Showcases the ULEAM Convention Center with an engaging landing page that allows users to request quotes and learn about event hosting options.",
+  "title": "Centro de Convenciones ULEAM · El escenario de tus ideas",
+  "language": "es",
+  "description": "Un lugar para encontrarnos en Manta. Descubre los espacios del Centro de Convenciones ULEAM, explora el recorrido 360° y cuéntanos tu próxima idea.",
   "robots": {
     "index": false
   },
