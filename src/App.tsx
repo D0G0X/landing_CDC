@@ -11,6 +11,7 @@ import lobbyGlassImage from "./assets/uleam-lobby-glass.jpeg"
 import aerialRooftopImage from "./assets/uleam-aerial-rooftop.jpeg"
 import exteriorAerialImage from "./assets/uleam-exterior-aerial.jpeg"
 import lobbyEntranceImage from "./assets/uleam-lobby-entrance.jpeg"
+import projectFilm from "./assets/uleam-project-film.mp4"
 
 const VirtualCardPreview = lazy(() =>
   import("./components/virtual-card-preview").then((module) => ({
@@ -31,6 +32,7 @@ const navigation = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Espacios", href: "#espacios" },
   { label: "Proyecto", href: "#proyecto" },
+  { label: "Video", href: "#video" },
   { label: "Recorrido 360°", href: "#recorrido-virtual" },
   { label: "Servicios", href: "#servicios" },
   { label: "Historias", href: "#resenas" },
@@ -499,7 +501,6 @@ export default function App() {
             </div>
             <p className="section-description">
               Recorre en imágenes las vistas interiores y exteriores del proyecto.
-              Muy pronto podrás conocerlo también en video.
             </p>
           </div>
           <div className="project-gallery" aria-label="Galería de imágenes del proyecto">
@@ -509,12 +510,23 @@ export default function App() {
                 <figcaption><span>0{index + 1}</span>{image.caption}</figcaption>
               </figure>
             ))}
-            <div className="project-video-placeholder" role="img" aria-label="Espacio reservado para el video de presentación del proyecto">
-              <span className="project-video-play" aria-hidden="true">▶</span>
-              <span className="eyebrow">Próximamente</span>
-              <p>El proyecto<br /><em>en movimiento.</em></p>
-              <small>VIDEO DE PRESENTACIÓN</small>
+          </div>
+        </section>
+        <section id="video" className="project-video-section section-space" aria-labelledby="video-title">
+          <div className="landing-shell project-video-inner">
+            <Chapter number="04" label="El proyecto en movimiento" note="Video de presentación" />
+            <div className="project-video-heading">
+              <h2 id="video-title" className="story-heading">
+                Así toma forma
+                <br />
+                <em>un nuevo encuentro.</em>
+              </h2>
+              <p>Descubre el Centro de Convenciones ULEAM en este recorrido audiovisual.</p>
             </div>
+            <video className="project-film" controls preload="metadata" playsInline poster={lobbyWideImage}>
+              <source src={projectFilm} type="video/mp4" />
+              Tu navegador no puede reproducir este video.
+            </video>
           </div>
         </section>
         <section
@@ -523,7 +535,7 @@ export default function App() {
           aria-labelledby="tour-title"
         >
           <Chapter
-            number="04"
+            number="05"
             label="Entra en tu próxima idea"
             note="Recorrido virtual · 360°"
           />
@@ -581,7 +593,7 @@ export default function App() {
         >
           <div className="landing-shell section-space">
             <Chapter
-              number="05"
+              number="06"
               label="Lo hacemos posible, contigo"
               note="Del primer detalle al último"
             />
@@ -624,7 +636,7 @@ export default function App() {
           aria-labelledby="events-title"
         >
           <Chapter
-            number="06"
+            number="07"
             label="Cuando la idea se hace encuentro"
             note="Momentos compartidos"
           />
@@ -673,7 +685,7 @@ export default function App() {
         >
           <div className="landing-shell reviews-layout">
             <div className="reviews-copy">
-              <Chapter number="07" label="Lo que se queda" />
+              <Chapter number="08" label="Lo que se queda" />
               <h2 id="reviews-title" className="story-heading">
                 Las historias
                 <br />
