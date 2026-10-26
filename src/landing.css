@@ -137,7 +137,7 @@
 /* A visual overview of the proposed convention center. */
 .project-section { background: #f4f2ee; }
 .project-gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(115px, 10vw, 155px); gap: 12px; }
-.project-gallery-item { position: relative; min-width: 0; margin: 0; overflow: hidden; background: #d8d3ca; }
+.project-gallery-item { position: relative; min-width: 0; margin: 0; overflow: hidden; background: #d8d3ca; grid-column: span 4; grid-row: span 2; }
 .project-gallery-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
 .project-gallery-item:hover img { transform: scale(1.035); }
 .project-gallery-item figcaption { position: absolute; inset: auto 0 0; display: flex; align-items: center; gap: 12px; padding: 32px 18px 16px; background: linear-gradient(transparent, #090909b8); color: #fff; font-size: 9px; letter-spacing: .07em; }
@@ -329,7 +329,8 @@
   .space-image { min-height: 340px; }
   .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 8px; }
   .project-gallery-item-1, .project-gallery-item-2, .project-gallery-item-6, .project-gallery-item-7 { grid-column: span 2; grid-row: span 2; }
-  .project-gallery-item-3, .project-gallery-item-4, .project-gallery-item-5 { grid-column: span 1; grid-row: span 1; }
+  .project-gallery-item-3, .project-gallery-item-4, .project-gallery-item-5,
+  .project-gallery-item:nth-child(n + 8) { grid-column: span 1; grid-row: span 1; }
   .project-gallery-item figcaption { gap: 8px; padding: 26px 10px 10px; font-size: 7px; }
   .project-video-heading .story-heading { font-size: clamp(38px, 9vw, 54px); }
   .project-video-heading > p { font-size: 12px; }

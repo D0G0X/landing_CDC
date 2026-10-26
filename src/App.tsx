@@ -4,13 +4,22 @@ import { ReviewMarquee } from "./components/review-marquee"
 import { tourUrl } from "./lib/navigation"
 import { useHeroStory } from "./lib/use-hero-story"
 import heroImage from "./assets/uleam-convention-center-hero.jpeg"
-import lobbyWideImage from "./assets/uleam-lobby-wide.jpeg"
-import lobbyAngleImage from "./assets/uleam-lobby-angle.jpeg"
-import aerialCourtyardImage from "./assets/uleam-aerial-courtyard.jpeg"
-import lobbyGlassImage from "./assets/uleam-lobby-glass.jpeg"
-import aerialRooftopImage from "./assets/uleam-aerial-rooftop.jpeg"
-import exteriorAerialImage from "./assets/uleam-exterior-aerial.jpeg"
-import lobbyEntranceImage from "./assets/uleam-lobby-entrance.jpeg"
+import galleryImage1 from "./assets/galeria_uleam1.jpg"
+import galleryImage2 from "./assets/galeria_uleam2.jpg"
+import galleryImage3 from "./assets/galeria_uleam3.jpg"
+import galleryImage4 from "./assets/galeria_uleam4.jpg"
+import galleryImage5 from "./assets/galeria_uleam5.jpg"
+import galleryImage6 from "./assets/galeria_uleam6.jpg"
+import galleryImage7 from "./assets/galeria_uleam7.jpg"
+import galleryImage8 from "./assets/galeria_uleam8.jpg"
+import galleryImage9 from "./assets/galeria_uleam9.jpg"
+import galleryImage10 from "./assets/galeria_uleam10.jpg"
+import galleryImage11 from "./assets/galeria_uleam11.jpg"
+import galleryImage12 from "./assets/galeria_uleam12.jpg"
+import galleryImage13 from "./assets/galeria_uleam13.jpg"
+import galleryImage14 from "./assets/galeria_uleam14.jpg"
+import galleryImage15 from "./assets/galeria_uleam15.jpg"
+import galleryImage16 from "./assets/galeria_uleam16.jpg"
 import projectFilm from "./assets/uleam-project-film.mp4"
 
 const VirtualCardPreview = lazy(() =>
@@ -20,7 +29,7 @@ const VirtualCardPreview = lazy(() =>
 )
 const images = {
   hero: heroImage,
-  hall: lobbyWideImage,
+  hall: galleryImage1,
   service:
     "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=84&w=1600",
   experience:
@@ -49,26 +58,27 @@ const slides = [
     kicker: "Encuentros & celebraciones",
     title: "Momentos que reúnen.",
     text: "Hay ocasiones que merecen vivirse juntos. Imagina una celebración con una atmósfera propia y cada detalle pensado para tus invitados.",
-    image: lobbyAngleImage,
-    alt: "Vista interior del salón de convenciones desde el acceso lateral",
+    image: galleryImage2,
+    alt: "Vista del proyecto del Centro de Convenciones ULEAM",
   },
   {
     kicker: "Eventos corporativos",
     title: "Conexiones que crecen.",
     text: "Reúne a tu equipo, presenta lo que viene o inicia una nueva alianza. Cada formato encuentra aquí una posibilidad.",
-    image: lobbyEntranceImage,
-    alt: "Vista interior del salón hacia su fachada acristalada",
+    image: galleryImage3,
+    alt: "Vista del proyecto del Centro de Convenciones ULEAM",
   },
 ]
 const projectImages = [
-  { src: lobbyWideImage, alt: "Vista amplia del vestíbulo con cubierta de madera", caption: "Un espacio para encontrarnos" },
-  { src: lobbyAngleImage, alt: "Perspectiva lateral del vestíbulo y sus ventanales", caption: "Luz y amplitud" },
-  { src: aerialCourtyardImage, alt: "Vista aérea del centro y su patio ajardinado", caption: "Un nuevo punto de encuentro" },
-  { src: lobbyGlassImage, alt: "Vestíbulo interior frente a la fachada acristalada", caption: "Arquitectura abierta" },
-  { src: aerialRooftopImage, alt: "Vista aérea de la cubierta y el entorno urbano", caption: "El proyecto desde arriba" },
-  { src: exteriorAerialImage, alt: "Vista aérea de la fachada longitudinal del centro", caption: "Una nueva silueta para Manta" },
-  { src: lobbyEntranceImage, alt: "Vista del vestíbulo desde el interior del edificio", caption: "Un lugar que invita a entrar" },
-]
+  galleryImage1, galleryImage2, galleryImage3, galleryImage4, galleryImage5,
+  galleryImage6, galleryImage7, galleryImage8, galleryImage9, galleryImage10,
+  galleryImage11, galleryImage12, galleryImage13, galleryImage14, galleryImage15,
+  galleryImage16,
+].map((src, index) => ({
+  src,
+  alt: `Vista ${index + 1} del proyecto del Centro de Convenciones ULEAM`,
+  caption: "Centro de Convenciones ULEAM",
+}))
 const services = [
   {
     title: "Un espacio a tu medida",
@@ -523,7 +533,7 @@ export default function App() {
               </h2>
               <p>Descubre el Centro de Convenciones ULEAM en este recorrido audiovisual.</p>
             </div>
-            <video className="project-film" controls preload="metadata" playsInline poster={lobbyWideImage}>
+            <video className="project-film" controls preload="metadata" playsInline poster={galleryImage1}>
               <source src={projectFilm} type="video/mp4" />
               Tu navegador no puede reproducir este video.
             </video>
