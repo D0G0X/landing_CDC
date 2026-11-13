@@ -8,8 +8,8 @@
 
 :root {
   font-family: "Manrope", sans-serif;
-  color: #171717;
-  background: #090909;
+  color: #32363f;
+  background: #1f2228;
   font-synthesis: none;
 }
 
@@ -31,10 +31,10 @@ button { cursor: pointer; }
   text-transform: uppercase;
   transition: background .2s, color .2s, gap .2s;
 }
-.button-primary { background: #df1f26; color: white; }
-.button-primary:hover { background: #f1262e; gap: 30px; }
-.button-light { background: #f4f2ee; color: #151515; }
-.button-light:hover { background: #151515; color: #fff; gap: 30px; }
+.button-primary { background: #a8895a; color: #1f2228; }
+.button-primary:hover { background: #bf9f6c; color: #1f2228; gap: 30px; }
+.button-light { background: #f4f2ee; color: #32363f; }
+.button-light:hover { background: #32363f; color: #fff; gap: 30px; }
 .footer-title {
   font-size: 9px;
   font-weight: 600;

@@ -21,6 +21,7 @@ import galleryImage14 from "./assets/galeria_uleam14.jpg"
 import galleryImage15 from "./assets/galeria_uleam15.jpg"
 import galleryImage16 from "./assets/galeria_uleam16.jpg"
 import projectFilm from "./assets/uleam-project-film.mp4"
+import logoCcp from "./assets/logo-ccp.png"
 
 const VirtualCardPreview = lazy(() =>
   import("./components/virtual-card-preview").then((module) => ({
@@ -110,14 +111,11 @@ function Arrow({ down = false }: { down?: boolean }) {
 function Brand() {
   return (
     <a href="#inicio" className="brand" aria-label="CCU, ir al inicio">
-      <span className="brand-mark">
-        CC
-        <span />
-      </span>
-      <span className="brand-copy">
-        <strong>CCU</strong>
-        <small>Centro de Convenciones ULEAM</small>
-      </span>
+      <img
+        src={logoCcp}
+        alt="Centro de Convenciones del Pacífico"
+        className="brand-logo"
+      />
     </a>
   )
 }

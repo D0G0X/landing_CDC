@@ -46,8 +46,8 @@ export const stops = [
 /** A small, entirely procedural venue: no remote models or textures. */
 export function createConventionScene() {
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color("#c7d9dd")
-  scene.fog = new THREE.Fog("#c7d9dd", 45, 100)
+  scene.background = new THREE.Color("#e9e6e0")
+  scene.fog = new THREE.Fog("#e9e6e0", 45, 100)
   const materials: THREE.Material[] = []
   const textures: THREE.Texture[] = []
   const material = (color: string, roughness = 0.75) => {
@@ -58,9 +58,9 @@ export function createConventionScene() {
   const stone = material("#ded8c9"),
     white = material("#f2eee4"),
     wood = material("#98765a"),
-    dark = material("#283a39"),
-    brass = material("#b9a06e", 0.4),
-    green = material("#536c50"),
+    dark = material("#32363f"),
+    brass = material("#a8895a", 0.4),
+    green = material("#a8895a"),
     soil = material("#403d32")
   const glow = new THREE.MeshBasicMaterial({ color: "#fff4d5" })
   materials.push(glow)
@@ -102,7 +102,7 @@ export function createConventionScene() {
     y: number,
     z: number,
     width: number,
-    bg = "#283a39",
+    bg = "#32363f",
   ) => {
     const canvas = document.createElement("canvas")
     canvas.width = 1024
@@ -140,11 +140,11 @@ export function createConventionScene() {
       scene.add(leaf)
     }
   }
-  scene.add(new THREE.HemisphereLight("#fff8e8", "#969b92", 2.5))
+  scene.add(new THREE.HemisphereLight("#fff8e8", "#8a8780", 2.5))
   const sun = new THREE.DirectionalLight("#ffefd5", 3)
   sun.position.set(-15, 25, 20)
   scene.add(sun)
-  box(0, -0.2, 0, 100, 0.2, 100, material("#a6b39a"))
+  box(0, -0.2, 0, 100, 0.2, 100, material("#c9c3b8"))
   // Four rooms, with door-sized openings in the connecting partitions.
   for (const [cx, cz, w, d] of [
     [0, 5, 12, 12],

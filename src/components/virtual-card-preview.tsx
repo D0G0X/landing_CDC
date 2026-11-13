@@ -36,7 +36,7 @@ export function VirtualCardPreview() {
     const camera = new THREE.OrthographicCamera(-9, 9, 6.7, -6.7, 0.1, 100)
     camera.position.set(14, 12, 19)
     camera.lookAt(0, 1, 0)
-    scene.add(new THREE.HemisphereLight("#fff6dc", "#233d34", 2.6))
+    scene.add(new THREE.HemisphereLight("#fff6dc", "#32363f", 2.6))
     const sun = new THREE.DirectionalLight("#ffe3ae", 3.8)
     sun.position.set(-8, 15, 12)
     scene.add(sun)
@@ -46,16 +46,16 @@ export function VirtualCardPreview() {
     const mat = (color: string, roughness = 0.65, metalness = 0) =>
       new THREE.MeshStandardMaterial({ color, roughness, metalness })
     const materials = {
-      grass: mat("#425e4d"),
+      grass: mat("#8f7449"),
       base: mat("#d6d0be"),
       wall: mat("#ede7d8"),
-      trim: mat("#c0a578", 0.43, 0.2),
-      glass: mat("#29483f", 0.28, 0.25),
+      trim: mat("#a8895a", 0.43, 0.2),
+      glass: mat("#32363f", 0.28, 0.25),
       roof: mat("#b9ad95"),
       path: mat("#c8bea8"),
-      leaf: mat("#839073"),
-      trunk: mat("#806446"),
-      warm: mat("#e6b96c", 0.35, 0.25),
+      leaf: mat("#8a8780"),
+      trunk: mat("#8f7449"),
+      warm: mat("#bf9f6c", 0.35, 0.25),
     }
     const block = (
       parent: THREE.Object3D,
