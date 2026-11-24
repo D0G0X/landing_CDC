@@ -3,7 +3,7 @@ import { UleamGlobe } from "./components/uleam-globe"
 import { ReviewMarquee } from "./components/review-marquee"
 import { tourUrl } from "./lib/navigation"
 import { useHeroStory } from "./lib/use-hero-story"
-import heroImage from "./assets/uleam-convention-center-hero.jpeg"
+import heroImage from "./assets/galeria_uleam11.jpg"
 import galleryImage1 from "./assets/galeria_uleam1.jpg"
 import galleryImage2 from "./assets/galeria_uleam2.jpg"
 import galleryImage3 from "./assets/galeria_uleam3.jpg"
@@ -20,7 +20,7 @@ import galleryImage13 from "./assets/galeria_uleam13.jpg"
 import galleryImage14 from "./assets/galeria_uleam14.jpg"
 import galleryImage15 from "./assets/galeria_uleam15.jpg"
 import galleryImage16 from "./assets/galeria_uleam16.jpg"
-import projectFilm from "./assets/uleam-project-film.mp4"
+import projectFilm from "./assets/uleam-project-film-new.mp4"
 import logoCcp from "./assets/logo-ccp.png"
 
 const VirtualCardPreview = lazy(() =>
@@ -238,7 +238,7 @@ export default function App() {
           <div className="hero-stage">
             <img
               src={images.hero}
-              alt="Render arquitectónico exterior del Centro de Convenciones ULEAM"
+              alt="Vista exterior del Centro de Convenciones ULEAM con su plaza y jardines"
               className="hero-scene-image"
               fetchPriority="high"
             />
