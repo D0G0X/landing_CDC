@@ -22,6 +22,10 @@ import galleryImage15 from "./assets/galeria_uleam15.jpg"
 import galleryImage16 from "./assets/galeria_uleam16.jpg"
 import projectFilm from "./assets/uleam-project-film-new.mp4"
 import logoCcp from "./assets/logo-ccp.png"
+import eventEntranceImage from "./assets/evento-gastronomia-entrada.jpg"
+import eventVendorsImage from "./assets/evento-gastronomia-puestos.jpg"
+import eventChefImage from "./assets/evento-gastronomia-chef.jpg"
+import eventCacaoImage from "./assets/evento-gastronomia-cacao.jpg"
 
 const VirtualCardPreview = lazy(() =>
   import("./components/virtual-card-preview").then((module) => ({
@@ -80,6 +84,25 @@ const projectImages = [
   alt: `Vista ${index + 1} del proyecto del Centro de Convenciones ULEAM`,
   caption: "Centro de Convenciones ULEAM",
 }))
+const archivedEvents = [
+  {
+    id: "cumbre-gastronomica-2026",
+    category: "Cumbre mundial · Gastronomía",
+    title: "II Cumbre Mundial Gastronómica 2026",
+    description:
+      "Sabores, saberes y encuentros que celebran la gastronomía de Manabí. Un registro de las actividades y las personas que dieron vida a esta edición.",
+    date: "Edición 2026 · día por confirmar",
+    location: "Centro de Convenciones ULEAM · Manta",
+    cover: eventEntranceImage,
+    coverAlt: "Ingreso a la II Cumbre Mundial Gastronómica en el Centro de Convenciones ULEAM",
+    gallery: [
+      { src: eventEntranceImage, alt: "Ingreso de la Cumbre Mundial Gastronómica", caption: "La bienvenida a la Cumbre" },
+      { src: eventVendorsImage, alt: "Expositores presentan sus productos gastronómicos", caption: "Expositores y sabores" },
+      { src: eventChefImage, alt: "Demostración culinaria durante la Cumbre", caption: "Demostraciones culinarias" },
+      { src: eventCacaoImage, alt: "Muestra de cacao y productos tradicionales de Manabí", caption: "Cacao y tradición manabita" },
+    ],
+  },
+]
 const services = [
   {
     title: "Un espacio a tu medida",
@@ -142,6 +165,8 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
   const [sliderPaused, setSliderPaused] = useState(false)
+  const [activeEvent, setActiveEvent] = useState<(typeof archivedEvents)[number] | null>(null)
+  const [activeEventPhoto, setActiveEventPhoto] = useState(0)
   const heroRef = useRef<HTMLElement>(null)
   useHeroStory(heroRef)
   useEffect(() => {
@@ -170,6 +195,19 @@ export default function App() {
     window.addEventListener("keydown", close)
     return () => window.removeEventListener("keydown", close)
   }, [menuOpen])
+  useEffect(() => {
+    if (!activeEvent) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveEvent(null)
+    }
+    window.addEventListener("keydown", close)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", close)
+    }
+  }, [activeEvent])
   const goToSlide = (next: number) =>
     setActiveSlide((next + slides.length) % slides.length)
   const slide = slides[activeSlide]
@@ -657,35 +695,102 @@ export default function App() {
               </h2>
             </div>
             <p className="section-description">
-              Lo que se prepara con intención se convierte en un momento para
-              recordar. Una mirada a los encuentros que nos reúnen.
+              Un archivo de congresos, celebraciones y experiencias de nuestra
+              comunidad. Abre cada evento para recorrer su galería.
             </p>
           </div>
-          <article className="event-feature">
-            <div className="event-image">
-              <img
-                src={images.event}
-                alt="Montaje elegante de un salón para un evento"
-                loading="lazy"
-              />
-              <span className="event-tag">Archivo de eventos</span>
-            </div>
-            <div className="event-copy">
-              <p className="eyebrow">Encuentro institucional</p>
-              <h3>Noche de Excelencia Académica</h3>
-              <p>
-                Reconocer el talento también es una forma de encontrarnos. Una
-                ceremonia dedicada a la dedicación y los logros de nuestra
-                comunidad universitaria.
-              </p>
-              <div className="event-meta">
-                <span>28 junio 2025</span>
-                <span>18:30</span>
-              </div>
-              <span className="event-status">Un momento compartido</span>
-            </div>
-          </article>
+          <div className="event-archive-grid">
+            {archivedEvents.map((event) => (
+              <article className="event-feature" key={event.id}>
+                <button
+                  type="button"
+                  className="event-image event-image-trigger"
+                  onClick={() => {
+                    setActiveEvent(event)
+                    setActiveEventPhoto(0)
+                  }}
+                  aria-label={`Ver galería de ${event.title}`}
+                  aria-haspopup="dialog"
+                >
+                  <img src={event.cover} alt={event.coverAlt} loading="lazy" />
+                  <span className="event-tag">Archivo de eventos</span>
+                  <span className="event-image-count">{event.gallery.length} FOTOS <Arrow /></span>
+                </button>
+                <div className="event-copy">
+                  <p className="eyebrow">{event.category}</p>
+                  <h3>{event.title}</h3>
+                  <p>{event.description}</p>
+                  <div className="event-meta">
+                    <span><small>FECHA</small>{event.date}</span>
+                    <span><small>LUGAR</small>{event.location}</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="event-status event-gallery-link"
+                    onClick={() => {
+                      setActiveEvent(event)
+                      setActiveEventPhoto(0)
+                    }}
+                    aria-haspopup="dialog"
+                  >
+                    Abrir álbum · {event.gallery.length} imágenes <Arrow />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
+        {activeEvent && (
+          <div className="event-modal-backdrop" onClick={() => setActiveEvent(null)}>
+            <section
+              className="event-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="event-modal-title"
+              onClick={(clickEvent) => clickEvent.stopPropagation()}
+            >
+              <header className="event-modal-header">
+                <div>
+                  <p className="eyebrow">{activeEvent.category}</p>
+                  <h2 id="event-modal-title">{activeEvent.title}</h2>
+                  <p>{activeEvent.date} <span>·</span> {activeEvent.location}</p>
+                </div>
+                <button
+                  type="button"
+                  className="event-modal-close"
+                  onClick={() => setActiveEvent(null)}
+                  aria-label="Cerrar galería"
+                >
+                  ×
+                </button>
+              </header>
+              <div className="event-gallery-viewer">
+                <img
+                  src={activeEvent.gallery[activeEventPhoto].src}
+                  alt={activeEvent.gallery[activeEventPhoto].alt}
+                />
+                <div className="event-gallery-caption">
+                  <span>{activeEvent.gallery[activeEventPhoto].caption}</span>
+                  <small>0{activeEventPhoto + 1} / 0{activeEvent.gallery.length}</small>
+                </div>
+              </div>
+              <div className="event-gallery-thumbnails" aria-label="Fotos del evento">
+                {activeEvent.gallery.map((photo, index) => (
+                  <button
+                    key={photo.src}
+                    type="button"
+                    className={index === activeEventPhoto ? "is-active" : ""}
+                    onClick={() => setActiveEventPhoto(index)}
+                    aria-label={`Ver foto ${index + 1}: ${photo.caption}`}
+                    aria-pressed={index === activeEventPhoto}
+                  >
+                    <img src={photo.src} alt="" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
         <section
           id="resenas"
           className="reviews-section"
